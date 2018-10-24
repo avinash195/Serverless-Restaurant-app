@@ -1,0 +1,13 @@
+service: restaurant-finder
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  get-index:
+    handler: functions/get-index.handler
+    events:
+      - http:
+          path: /
+          method: get

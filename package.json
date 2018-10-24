@@ -1,0 +1,15 @@
+{
+  "name": "restaurant-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "avinash",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.2",
+    "co": "^4.6.0"
+  }
+}
