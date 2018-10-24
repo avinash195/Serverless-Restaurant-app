@@ -9,6 +9,7 @@
   "author": "avinash",
   "license": "ISC",
   "dependencies": {
+    "aws4": "^1.8.0",
     "bluebird": "^3.5.2",
     "co": "^4.6.0",
     "mustache": "^3.0.0",
