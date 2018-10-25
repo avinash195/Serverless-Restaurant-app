@@ -16,7 +16,8 @@ let init = co.wrap(function* () {
   process.env.AWS_REGION           = "us-east-1";
   process.env.cognito_user_pool_id = "us-east-1_WMrhCsQk3";
   process.env.cognito_client_id    = "5at8tl50h67o5t8fmejqaokcqd";
-  
+  process.env.cognito_server_client_id = "process.env.cognito_client_id";
+
   let cred = yield awscred.loadAsync();
   
   process.env.AWS_ACCESS_KEY_ID     = cred.credentials.accessKeyId;
