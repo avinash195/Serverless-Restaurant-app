@@ -14,6 +14,7 @@ let an_authenticated_user = function* () {
   let userpoolId = process.env.cognito_user_pool_id;
   let clientId = process.env.cognito_server_client_id;
 
+  console.log("inside chance js module");
   let firstName = chance.first();
   let lastName  = chance.last();
   let username  = `test-${firstName}-${lastName}-${chance.string({length: 8})}`;

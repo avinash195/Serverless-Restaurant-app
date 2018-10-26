@@ -7,9 +7,8 @@ const tearDown = require('../steps/tearDown');
 const given    = require('../steps/given');
 const when     = require('../steps/when');
 
-describe(`Given an authorised user`, co.wrap(function* () {
+describe(`Given an authorized user`, co.wrap(function* () {
   let user;
-
   before(co.wrap(function* () {
     yield init();
     user = yield given.an_authenticated_user();
