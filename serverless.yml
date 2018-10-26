@@ -2,6 +2,7 @@ service: restaurant-finder
 
 plugins:
   - serverless-pseudo-parameters
+  - serverless-sam
 
 provider:
   name: aws
