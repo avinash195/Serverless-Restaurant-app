@@ -7,6 +7,7 @@ const Mustache = require('mustache');
 const http = require('superagent-promise')(require('superagent'), Promise);
 const aws4 = require('aws4');
 const URL = require('url');
+const awscred  = Promise.promisifyAll(require('../lib/awscred'));
 
 const restaurantsApiRoot = process.env.restaurants_api;
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -32,6 +33,18 @@ function* getRestaurants() {
     host: url.hostname, 
     path: url.pathname
   };
+
+  if (!process.env.AWS_ACCESS_KEY_ID) {
+    let cred = yield awscred.loadAsync();
+  
+    process.env.AWS_ACCESS_KEY_ID     = cred.credentials.accessKeyId;
+    process.env.AWS_SECRET_ACCESS_KEY = cred.credentials.secretAccessKey;
+
+    if (cred.sessionToken) {
+      process.env.AWS_SESSION_TOKEN = cred.sessionToken;
+    }
+
+  }
 
   aws4.sign(opts);
 
