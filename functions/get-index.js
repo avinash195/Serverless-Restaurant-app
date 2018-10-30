@@ -33,6 +33,8 @@ function* getRestaurants() {
     host: url.hostname, 
     path: url.pathname
   };
+  console.log('url' + '-----' + url);
+  console.log('opts' + '-----' + JSON.stringify(opts));
 
   if (!process.env.AWS_ACCESS_KEY_ID) {
     let cred = yield awscred.loadAsync();
@@ -40,13 +42,19 @@ function* getRestaurants() {
     process.env.AWS_ACCESS_KEY_ID     = cred.credentials.accessKeyId;
     process.env.AWS_SECRET_ACCESS_KEY = cred.credentials.secretAccessKey;
 
+    console.log('AWS_ACCESS_KEY_ID' + '-----' + process.env.AWS_ACCESS_KEY_ID);
+    console.log('AWS_SECRET_ACCESS_KEY' + '-----' + process.env.AWS_SECRET_ACCESS_KEY);
+
     if (cred.sessionToken) {
       process.env.AWS_SESSION_TOKEN = cred.sessionToken;
+      console.log('AWS_SESSION_TOKEN' + '-----' + process.env.AWS_SESSION_TOKEN);
     }
 
   }
 
   aws4.sign(opts);
+
+  console.log('opts' + '-----' + JSON.stringify(opts));
 
   let httpReq = http
     .get(restaurantsApiRoot)
