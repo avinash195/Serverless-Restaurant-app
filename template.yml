@@ -10,7 +10,7 @@ Resources:
       CodeUri: >-
         /Users/avinash/Desktop/restaurant-finder/.serverless/restaurant-finder.zip
       MemorySize: 128
-      Timeout: 3
+      Timeout: 8
       Policies:
         - Version: '2012-10-17'
           Statement:

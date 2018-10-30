@@ -63,12 +63,16 @@ let an_authenticated_user = function* () {
   
   console.log(`[${username}] - responded to auth challenge`);
 
-  return {
+  let respp = {
     username,
     firstName,
     lastName,
     idToken: challengeResp.AuthenticationResult.IdToken
   };
+
+  console.log('resp: ', respp);
+
+  return respp;
 };
 
 module.exports = {
