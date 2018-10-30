@@ -7,13 +7,15 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 const defaultResults = process.env.defaultResults || 8;
 const tableName = process.env.restaurants_table;
 
-function* getRestaurants(count) {
+function* getRestaurants(count) {console.log('getrestaurant' + '-----' + 'called');
     let req = {
         TableName: tableName,
         Limit: count
     }
+    console.log('req' + '-----' + req);
 
     let res = yield dynamodb.scan(req).promise();
+    console.log('res' + '-----' + res);
     return res.Items;
 }
 
