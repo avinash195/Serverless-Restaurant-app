@@ -107,6 +107,7 @@ let we_invoke_get_index = co.wrap(function* () {
       ? yield viaHandler({}, 'get-index')
       : yield viaHttp('', 'GET');
 
+  console.log('we_invoke_get_index_response' + '-----' + JSON.stringify(res));
   return res;
 });
 

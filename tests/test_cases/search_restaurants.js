@@ -12,6 +12,7 @@ describe(`Given an authorized user`, co.wrap(function* () {
   before(co.wrap(function* () {
     yield init();
     user = yield given.an_authenticated_user();
+    console.log('beforeall' + '-----' + user);
   }));
 
   after(co.wrap(function* () {
