@@ -119,7 +119,7 @@ let we_invoke_get_restaurants = co.wrap(function* () {
   return res;
 });
 
-let we_invoke_search_restaurants = co.wrap(function* (user, theme) {
+let we_invoke_search_restaurants = co.wrap(function* (user, theme) {console.log('user' + '-----' + JSON.stringify(user));
   let body = JSON.stringify({ theme });
   let auth = user.idToken;
 
